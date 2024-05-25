@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.34909.67
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BigMission.Avalonia.Utilities", "BigMission.Avalonia.Utilities\BigMission.Avalonia.Utilities.csproj", "{2CF98AD9-9CCE-49E1-9688-362F85BEEDDB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{13671037-22FA-40B4-AE4E-B9E1B101E909}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\build.yml = .github\workflows\build.yml
+		LICENSE = LICENSE
+		README.md = README.md
+		.github\workflows\publish-nuget.yml = .github\workflows\publish-nuget.yml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2CF98AD9-9CCE-49E1-9688-362F85BEEDDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CF98AD9-9CCE-49E1-9688-362F85BEEDDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CF98AD9-9CCE-49E1-9688-362F85BEEDDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CF98AD9-9CCE-49E1-9688-362F85BEEDDB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9CD0CB75-DF57-4552-B802-B89BC68910A5}
+	EndGlobalSection
+EndGlobal
