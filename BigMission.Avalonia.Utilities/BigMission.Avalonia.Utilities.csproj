@@ -5,7 +5,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<Title>Avalonia Utilities</Title>
-		<Version>1.0.2.0</Version>
+		<Version>1.0.3.0</Version>
 		<Authors>Brian Griggs</Authors>
 		<Company>Big Mission Motorsports, LLC</Company>
 		<Description>Utility classes for Avalonia applications.</Description>

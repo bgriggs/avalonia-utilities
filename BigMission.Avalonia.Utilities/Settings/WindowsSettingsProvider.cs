@@ -17,7 +17,7 @@ public class WindowsSettingsProvider : ISettingsProvider
 
     public WindowsSettingsProvider()
     {
-        userSettingsFile = $"{System.Reflection.Assembly.GetExecutingAssembly().GetName().Name}-settings.json";
+        userSettingsFile = $"{System.Diagnostics.Process.GetCurrentProcess().ProcessName}-settings.json";
 
         var configurationBuilder = new ConfigurationBuilder();
         userSettings = configurationBuilder.Add((Action<WritableJsonConfigurationSource>)(s =>

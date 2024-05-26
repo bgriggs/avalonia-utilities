@@ -77,7 +77,7 @@ internal class WritableJsonConfigurationProvider(JsonConfigurationSource source)
             static Stream OpenRead(IFileInfo fileInfo)
             {
                 var store = IsolatedStorageFile.GetUserStoreForAssembly();
-                return new IsolatedStorageFileStream(fileInfo.Name, FileMode.Open, store);
+                return new IsolatedStorageFileStream(fileInfo.Name, FileMode.OpenOrCreate, store);
             }
 
             using Stream stream = OpenRead(file);
