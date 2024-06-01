@@ -27,4 +27,4 @@ jobs:
       - name: Create the package
         run: dotnet pack BigMission.Avalonia.Utilities/BigMission.Avalonia.Utilities.csproj --configuration Release
       - name: Publish the package to Nuget
-        run: dotnet nuget push BigMission.Avalonia.Utilities\bin\Release\*.nupkg -s https://api.nuget.org/v3/index.json --api-key ${{secrets.NUGET_TOKEN}} --skip-duplicate
+        run: dotnet nuget push BigMission.Avalonia.Utilities/bin/Release/*.nupkg -s https://api.nuget.org/v3/index.json --api-key ${{secrets.NUGET_TOKEN}} --skip-duplicate
