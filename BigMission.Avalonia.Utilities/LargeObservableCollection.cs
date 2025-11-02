@@ -61,6 +61,10 @@ public class LargeObservableCollection<T> : ObservableCollection<T>
         }
     }
 
+    /// <summary>
+    /// Adds multiple items to the collection. If not in a bulk operation, starts one temporarily.
+    /// </summary>
+    /// <param name="items">The items to add to the collection.</param>
     public void AddRange(IEnumerable<T> items)
     {
         bool clearBulkOperation = false;

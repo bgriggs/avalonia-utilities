@@ -9,6 +9,14 @@ namespace BigMission.Avalonia.Utilities.Settings;
 // https://stackoverflow.com/questions/57978535/save-changes-of-iconfigurationroot-sections-to-its-json-file-in-net-core-2-2/57990271#57990271
 internal class WritableJsonConfigurationProvider(JsonConfigurationSource source) : JsonConfigurationProvider(source)
 {
+    /// <summary>
+    /// Sets a configuration value for the specified key and persists it to the JSON file in isolated storage.
+    /// </summary>
+    /// <param name="key">The configuration key to set. Supports nested keys using delimiters ":" or "__".</param>
+    /// <param name="value">The value to set for the configuration key. Null to clear the value.</param>
+    /// <exception cref="InvalidOperationException">
+    /// Thrown when the configuration source path is empty or when setting a nested value on a non-object node.
+    /// </exception>
     public override void Set(string key, string? value)
     {
         base.Set(key, value);
@@ -27,10 +35,6 @@ internal class WritableJsonConfigurationProvider(JsonConfigurationSource source)
         var jsonObj = JsonNode.Parse(json) ?? JsonNode.Parse("{ }")!;
         var result = SetValue(jsonObj.AsObject(), key, value);
 
-        //dynamic jsonObj = JsonConvert.DeserializeObject(json) ?? new Dictionary<string, object>();
-        //jsonObj[key] = value;
-        //string output = JsonConvert.SerializeObject(jsonObj, Formatting.Indented);
-
         reader.Dispose();
 
         // Write back to file
@@ -47,6 +51,10 @@ internal class WritableJsonConfigurationProvider(JsonConfigurationSource source)
         }
     }
 
+    /// <summary>
+    /// Ensures that a settings file exists in isolated storage, creating it with an empty JSON object if it doesn't exist.
+    /// </summary>
+    /// <param name="name">The name of the settings file to ensure exists.</param>
     public static void EnsureSettingsFile(string name)
     {
         var store = IsolatedStorageFile.GetUserStoreForAssembly();
@@ -58,6 +66,13 @@ internal class WritableJsonConfigurationProvider(JsonConfigurationSource source)
         }
     }
 
+    /// <summary>
+    /// Loads configuration data from the JSON file in isolated storage.
+    /// If the file doesn't exist and the source is optional, initializes with an empty configuration.
+    /// </summary>
+    /// <exception cref="InvalidOperationException">
+    /// Thrown when the settings file cannot be opened and the source is not optional.
+    /// </exception>
     public override void Load()
     {
         IFileInfo? file = Source.FileProvider?.GetFileInfo(Source.Path ?? string.Empty);
